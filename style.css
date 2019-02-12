@@ -1,0 +1,294 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #030926;
+  color: #999999;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+h1 {
+  margin: 80px 0;
+  font-family: 'Roboto Slab', serif;
+  font-size: 52px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 22px;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.inline {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container {
+  max-width: 1100px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.image-container {
+  position: relative;
+}
+
+.base {
+  position: relative;
+}
+
+.image-container .item {
+  position: absolute !important;
+  top: 0;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.image-container .item.active {
+  opacity: 1;
+}
+
+.street-view img {
+  width: 100%;
+}
+
+.camera-list {
+  position: relative;
+  z-index: 1;
+  margin-bottom: -120px;
+}
+
+.camera-list h3 {
+  text-align: center;
+}
+
+.camera-list input {
+  display: none;
+}
+
+.camera-list li {
+  width: 250px;
+  text-align: center;
+}
+
+.camera-list p {
+  height: 250px;
+  text-align: left;
+}
+
+.camera-list label {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background: transparent;
+  border: 1px solid #dc5ecc;
+  border-radius: 50%;
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(220,94,204,1);
+  -moz-box-shadow: 0px 0px 15px 0px rgba(220,94,204,1);
+  box-shadow: 0px 0px 15px 0px rgba(220,94,204,1);
+}
+
+.camera-list input:checked + label {
+  background: #dc5ecc;
+}
+
+.map {
+  position: relative;
+  max-width: 1400px;
+  width: 90%;
+  margin-top: 80px;
+}
+
+.map img {
+  width: 100%;
+}
+
+.map-description {
+  position: absolute;
+  z-index: 3;
+  top: -5%;
+  right: 5%;
+  width: 480px;
+  background: #030926;
+  padding: 10px;
+  text-align: center;
+}
+
+.map-description > p {
+  text-align: left;
+}
+
+.signs {
+  max-width: 350px;
+  margin: 30px auto 0;
+}
+
+.signs li {
+  display: flex;
+  align-items: center;
+}
+
+.signs li span {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.signs li:nth-of-type(1) span {
+  background: #c64a90;
+}
+
+.signs li:nth-of-type(2) span {
+  background: #f1d64f;
+}
+
+.signs li:nth-of-type(3) span {
+  background: #7fbff8;
+}
+
+.call-to-action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.call-to-action img {
+  width: 14px;
+  margin-right: 10px;
+}
+
+.vote {
+  position: relative;
+  height: 50px;
+  margin: 50px 0 125px;
+}
+
+.vote ul {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.vote ul input {
+  display: none;
+}
+
+.vote ul label,
+.vote .results li > div {
+  display: block;
+  width: 92px;
+  height: 32px;
+  background: transparent;
+  border: 1px solid #733a84;
+  color: #666666;
+  font-size: 17px;
+  line-height: 32px;
+  text-align: center;
+  transition: all .5s;
+}
+
+.vote ul input:checked + label,
+.vote .results li > div {
+  background: #733a84;
+  color: white;
+}
+
+.vote .results li {
+  position: relative;
+  background: #f5eaea;
+}
+
+.vote .result-text {
+  position: absolute;
+  left: -15px;
+  width: 120px;
+  height: 33px;
+}
+
+.vote-list {
+  opacity: 0;
+  transition: opacity .5s;
+}
+
+.vote-list.active {
+  z-index: 1;
+  opacity: 1;
+}
+
+.result-text.user-result {
+  top: -45px;
+  background: url('images/arrow_down.svg') bottom center no-repeat;
+  background-size: 14px 7px;
+}
+
+
+.result-text.average-result {
+  display: flex;
+  align-items: flex-end;
+  bottom: -45px;
+  background: url('images/arrow_up.svg') top center no-repeat;
+  background-size: 14px 7px;
+}
+
+.video {
+  display: flex;
+  justify-content: center;
+  margin: 25px auto;
+}
+
+hr {
+  background: #666;
+}
+
+.social-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
+  margin: 30px auto;
+}
+
+.social-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  width: 35px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+}
+
+.facebook img {
+  height: 35px;
+}
+
+.tumblr img {
+  height: 33px;
+}
+
+.twitter img {
+  height: 25px;
+}
+
+footer {
+  background: #1a1a1a;
+  padding: 40px 0;
+}
