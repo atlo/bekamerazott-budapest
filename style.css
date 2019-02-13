@@ -108,20 +108,28 @@ ul {
 
 .map {
   position: relative;
-  max-width: 1400px;
-  width: 90%;
-  margin-top: 80px;
+  width: 1400px;
+  max-width: 90%;
+  margin: 80px auto 0;
 }
 
 .map img {
   width: 100%;
 }
 
+.map .image-container {
+  right: 3.5714%;
+}
+
+.map .image-container .item {
+  transition: opacity .7s;
+}
+
 .map-description {
   position: absolute;
   z-index: 3;
   top: -5%;
-  right: 5%;
+  right: 3.5714%;
   width: 480px;
   background: #030926;
   padding: 10px;
@@ -212,7 +220,7 @@ ul {
 
 .vote .results li {
   position: relative;
-  background: #f5eaea;
+  background: #ecceee;
 }
 
 .vote .result-text {
