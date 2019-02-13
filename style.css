@@ -43,6 +43,25 @@ ul {
   margin: 0 auto;
 }
 
+.title {
+  position: relative;
+  height: 225px;
+  width: 705px;
+  margin: 50px auto;
+}
+
+.title .base {
+
+}
+
+.title .highlighted {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-clip-path: circle(21.5% at 16% 50%);
+  clip-path: circle(21.5% at 16% 50%);
+}
+
 .image-container {
   position: relative;
 }
