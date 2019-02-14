@@ -346,6 +346,12 @@ footer {
   padding: 40px 0;
 }
 
+
+.footer-logo {
+  display: block;
+  margin-bottom: 50px;
+}
+
 .vote .results li > div.vote-5 {
   background: #fdf7fc;
 }
