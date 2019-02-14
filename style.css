@@ -212,15 +212,18 @@ ul {
 
 .vote {
   position: relative;
-  height: 50px;
-  margin: 50px 0 125px;
+  height: 145px;
+  width: 100%;
+  margin: 50px 0;
 }
 
 .vote ul {
   position: absolute;
   display: flex;
-  justify-content: space-between;
-  width: 100%;
+}
+
+.vote ul li {
+  margin-right: 10px;
 }
 
 .vote ul input {
@@ -241,10 +244,14 @@ ul {
   transition: all .5s;
 }
 
+.vote .results li > div {
+  border: 1px solid #DC5DCA;
+}
+
 .vote ul input:checked + label,
 .vote .results li > div {
   background: #733a84;
-  color: white;
+  color: #666666;
 }
 
 .vote .results li {
@@ -282,6 +289,15 @@ ul {
   bottom: -45px;
   background: url('images/arrow_up.svg') top center no-repeat;
   background-size: 14px 7px;
+}
+
+.vote-description {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 100%;
+  max-width: 1000px;
+  width: 100%;
 }
 
 .video {
@@ -328,4 +344,84 @@ hr {
 footer {
   background: #1a1a1a;
   padding: 40px 0;
+}
+
+.vote .results li > div.vote-5 {
+  background: #fdf7fc;
+}
+
+.vote .results li > div.vote-10 {
+  background: #FBEFFA;
+}
+
+.vote .results li > div.vote-15 {
+  background: #FAE7F7;
+}
+
+.vote .results li > div.vote-20{
+  background: #F8DFF4;
+}
+
+.vote .results li > div.vote-25 {
+  background: #F6D6F2;
+}
+
+.vote .results li > div.vote-30 {
+  background: #F4CEEF;
+}
+
+.vote .results li > div.vote-35 {
+  background: #F3C6ED;
+}
+
+.vote .results li > div.vote-40 {
+  background: #F1BEEA;
+}
+
+.vote .results li > div.vote-45 {
+  background: #EFB6E7;
+}
+
+.vote .results li > div.vote-50 {
+  background: #EDAEE5;
+}
+
+.vote .results li > div.vote-55 {
+  background: #ECA6E2;
+}
+
+.vote .results li > div.vote-60 {
+  background: #EA9EDF;
+}
+
+.vote .results li > div.vote-65 {
+  background: #E896DD;
+}
+
+.vote .results li > div.vote-70 {
+  background: #E68DDA;
+}
+
+.vote .results li > div.vote-75 {
+  background: #E585D8;
+}
+
+.vote .results li > div.vote-80 {
+  background: #E37DD5;
+}
+
+.vote .results li > div.vote-85 {
+  background: #E175D2;
+}
+
+.vote .results li > div.vote-90 {
+  background: #DF6DD0;
+}
+
+.vote .results li > div.vote-95 {
+  background: #DE65CD;
+}
+
+.vote .results li > div.vote-100 {
+  background: #DC5DCA;
 }

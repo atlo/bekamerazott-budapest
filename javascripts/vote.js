@@ -239,16 +239,18 @@ function vote () {
   showResults(resultsMock, resultsMock.length)
 }
 
-function countPercentage (number, total) {
-  return number / total
+function countColorLevel (number, total) {
+  const percentage = number / total
+  return Math.ceil((percentage * 100) / 5) * 5
 }
 
 function showResults (results, total) {
   const votes = countVotes(results)
   
   resultElements.map(function (element, index) {
-    const opacity = countPercentage(votes[index + 1], total)
-    element.style.background = `rgba(115, 58, 132, ${opacity})`
+    const colorLevel = countColorLevel(votes[index + 1], total)
+    console.log(colorLevel)
+    element.classList.add(`vote-${colorLevel}`)
 
     return element
   })
