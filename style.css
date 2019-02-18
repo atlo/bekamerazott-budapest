@@ -431,3 +431,84 @@ footer {
 .vote .results li > div.vote-100 {
   background: #DC5DCA;
 }
+
+@media (max-width: 999px) {
+  .title {
+    width: 100%;
+    height: auto;
+    line-height: 1.5;
+    margin: 25px 0;
+  }
+
+  .title h1 {
+    font-size: 32px;
+  }
+
+  .title .base {
+    color: white;
+  }
+
+  .highlighted {
+    display: none;
+  }
+
+  .camera-list {
+    display: block;
+    margin-bottom: 0;
+  }
+
+  .camera-list li {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+
+  .camera-list p {
+    height: auto;
+  }
+
+  .map {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .map .image-container {
+    right: auto;
+  }
+
+  .map-description {
+    position: relative;
+    width: 100%;
+    top: auto;
+    right: auto;
+  }
+
+  .signs .inline {
+    display: block;
+  }
+
+  .call-to-action {
+    display: none;
+  }
+
+  .vote {
+    height: 180px;
+  }
+
+  .vote ul {
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .vote ul li {
+    margin-bottom: 10px;
+  }
+
+  .vote-description {
+    height: auto;
+  }
+
+  .video iframe {
+    width: 100%;
+    height: 175px;
+  }
+}
