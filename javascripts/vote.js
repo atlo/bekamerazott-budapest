@@ -19,7 +19,7 @@ function showError (message) {
 }
 
 function getPoll () {
-  return fetch('http://localhost:3000/poll/5c6ad5f0b2962c15e29e012e')
+  return fetch('<API-URL-HERE>')
     .then(response => response.json())
     .then(function (data) {
       poll = data.poll
@@ -53,7 +53,7 @@ function vote () {
   if (selected) {
     const body = JSON.stringify({answer: selected})
 
-    return fetch('http://localhost:3000/poll/5c6ad5f0b2962c15e29e012e', {
+    return fetch('<API-URL-HERE>', {
       body: body, 
       method: 'POST',
       headers: {
