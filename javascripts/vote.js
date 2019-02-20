@@ -3,14 +3,22 @@ const voteListResults = document.querySelector('.vote-list.results')
 const voteRadios = Array.from(document.querySelectorAll('.vote-list input'))
 const resultElements = Array.from(document.querySelectorAll('.results li div'))
 
-let userVote = undefined
 let poll = undefined
 
 function setUserCookie (userId) {
   document.cookie = `poll-user=${userId}`
 }
 
-function didUserVoted () {
+function getUserVoteFromCookie () {
+  const userId = document.cookie
+    .split('; ')
+    .find(cookie => cookie.match('poll-user'))
+    .split('=')[1]
+    
+  return poll.votes.find(vote => vote.user === userId)
+}
+
+function didUserVote () {
   return document.cookie.includes('poll-user')
 }
 
@@ -26,7 +34,13 @@ function getPoll () {
 
       return poll
     })
-    .then(setVoteValues)
+    .then(function (poll) {
+      setVoteValues(poll)
+
+      if (didUserVote()) {
+        showResults()
+      }
+    })
     .catch(error => error)
 }
 
@@ -61,7 +75,7 @@ function vote () {
       }
     })
     .then(response => response.json())
-    .then(showResults)
+    .then(data => showResults(data.vote))
     .catch(error => error)
   } else {
     showError('No answer found.')
@@ -73,9 +87,14 @@ function countColorLevel (number, total) {
   return Math.floor((percentage * 100) / 5) * 5
 }
 
-function showResults ({vote}) {
-  poll.votes = [...poll.votes, vote]
-  
+function showResults (vote) {
+  if (vote) {
+    poll.votes = [...poll.votes, vote]
+    setUserCookie(vote.user)
+  } else {
+    vote = getUserVoteFromCookie()
+  }
+
   countVotes()
   
   resultElements.forEach(function (element) {
@@ -117,3 +136,4 @@ function showMostVoted () {
 voteRadios.forEach(radio => radio.addEventListener('change', vote))
 
 getPoll()
+didUserVote()
