@@ -261,9 +261,10 @@ ul {
 
 .vote .result-text {
   position: absolute;
-  left: -15px;
-  width: 120px;
+  left: -30px;
+  width: 155px;
   height: 33px;
+  text-align: center;
 }
 
 .vote-list {
@@ -352,6 +353,7 @@ footer {
   margin-bottom: 50px;
 }
 
+.vote .results li > div,
 .vote .results li > div.vote-5 {
   background: #fdf7fc;
 }
