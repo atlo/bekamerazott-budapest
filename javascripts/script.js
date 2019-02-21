@@ -9,6 +9,7 @@ const mapLength = mapImages.length - 1
 
 let scrollTimer = undefined
 let currentMap = 0
+let mouseIsInMap = false
 
 function changeCamera () {
   const checked = cameraRadios.find(radio => radio.checked)
@@ -28,6 +29,7 @@ function previousMap (current) {
 }
 
 function changeMap (event) {
+  console.log({x: event.x})
   const isScrollUp = event.deltaY < 0
   const isScrollDown = event.deltaY > 0
 
@@ -56,6 +58,9 @@ function changeMap (event) {
 cameraRadios.forEach(camera => camera.addEventListener('change', changeCamera))
 mapContainer.addEventListener('mouseover', function () {
   window.addEventListener('wheel', changeMap)
+})
+mapContainer.addEventListener('mouseleave', function () {
+  window.removeEventListener('wheel', changeMap)
 })
 
 document.querySelector('label[for="camera-1"]').click()

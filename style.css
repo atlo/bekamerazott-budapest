@@ -27,6 +27,10 @@ h3 {
   font-size: 22px;
 }
 
+p:first-of-type {
+  margin-top: 0;
+}
+
 ul {
   list-style: none;
   padding-left: 0;
@@ -45,10 +49,10 @@ ul {
 
 .title {
   position: relative;
-  height: 225px;
-  width: 705px;
-  margin: 50px auto;
-  line-height: 225px;
+  height: 250px;
+  width: 100%;
+  margin: 0 auto;
+  line-height: 250px;
 }
 
 .title .base,
@@ -66,8 +70,8 @@ ul {
   position: absolute;
   top: 0;
   left: 0;
-  -webkit-clip-path: circle(21.5% at 16% 50%);
-  clip-path: circle(21.5% at 16% 50%);
+  -webkit-clip-path: circle(14% at 30% 50%);
+  clip-path: circle(14% at 30% 50%);
   background: #1c2c50;
   color: white;
 }
@@ -115,12 +119,15 @@ ul {
 }
 
 .camera-list p {
-  height: 250px;
+  height: 175px;
   text-align: left;
 }
 
-.camera-list label {
+.camera-list label:before {
+  position: relative;
+  top: 5px;
   display: inline-block;
+  content: '';
   width: 22px;
   height: 22px;
   background: transparent;
@@ -131,8 +138,12 @@ ul {
   box-shadow: 0px 0px 15px 0px rgba(220,94,204,1);
 }
 
-.camera-list input:checked + label {
+.camera-list input:checked + label:before {
   background: #dc5ecc;
+}
+
+.camera-list li:first-of-type label:before {
+  right: 15px;
 }
 
 .map {
@@ -157,12 +168,19 @@ ul {
 .map-description {
   position: absolute;
   z-index: 3;
-  top: -5%;
+  top: 0;
   right: 3.5714%;
   width: 480px;
   background: #030926;
-  padding: 10px;
+  padding: 20px;
+  padding-top: 0;
   text-align: center;
+}
+
+.map-description h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-align: left;
 }
 
 .map-description > p {

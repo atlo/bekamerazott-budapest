@@ -1,6 +1,7 @@
 const titleContainer = document.querySelector('.title')
 const highlighted = document.querySelector('.highlighted')
 const titleContainerWidth = titleContainer.offsetWidth
+const titleContainerHeight = titleContainer.offsetHeight
 
 function getRelativeCoordinates (event, element){
 
@@ -29,23 +30,30 @@ function getRelativeCoordinates (event, element){
 
 }
 
-function calculatePercentage (x) {
-  const percentage = x / titleContainerWidth * 100
+function calculatePercentage (x, y) {
+  let xPercentage = x / titleContainerWidth * 100
+  let yPercentage = y / titleContainerHeight * 100
 
-  if (percentage > 84) {
-    return 84
-  } else if (percentage < 16) {
-    return 16
-  } else {
-    return percentage
+  if (xPercentage > 89.5) {
+    xPercentage = 89.5
+  } else if (xPercentage < 10.5) {
+    xPercentage = 10.5
   }
+
+  if (yPercentage > 55) {
+    yPercentage = 55
+  } else if (yPercentage < 45) {
+    yPercentage = 45
+  }
+
+  return [xPercentage, yPercentage]
 }
 
 function moveHighlight (event) {
-  const {x} = getRelativeCoordinates(event, titleContainer)
-  const xPercentage = calculatePercentage(x)
-  
-  highlighted.style.clipPath = `circle(21.5% at ${xPercentage}% 50%)`
+  const {x, y} = getRelativeCoordinates(event, titleContainer)
+  const [xPercentage, yPercentage] = calculatePercentage(x, y)
+  console.log(`circle(14% at ${xPercentage}% ${yPercentage})`)
+  highlighted.style.clipPath = `circle(14% at ${xPercentage}% ${yPercentage}%)`
 }
 
 titleContainer.addEventListener('mousemove', moveHighlight)
