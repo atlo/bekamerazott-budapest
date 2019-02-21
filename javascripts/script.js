@@ -57,3 +57,6 @@ cameraRadios.forEach(camera => camera.addEventListener('change', changeCamera))
 mapContainer.addEventListener('mouseover', function () {
   window.addEventListener('wheel', changeMap)
 })
+
+document.querySelector('label[for="camera-1"]').click()
+changeCamera()
