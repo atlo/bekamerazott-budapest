@@ -5,6 +5,7 @@ const cameraImages = Array.from(document.querySelectorAll('.street-view .image-c
 
 const mapContainer = document.querySelector('.map .image-container')
 const mapImages = Array.from(document.querySelectorAll('.map .image-container .item'))
+const mapDescriptions = Array.from(document.querySelectorAll('.map-description > li'))
 const mapLength = mapImages.length - 1
 
 let scrollTimer = undefined
@@ -48,11 +49,25 @@ function changeMap (event) {
   scrollTimer = setTimeout(function () {
     const current = mapImages.findIndex(image => image.classList.contains('active')) || 0
     currentMap = isScrollDown ? nextMap(current) : previousMap(current)
+    console.log({currentMap})
     const newImage = mapImages[currentMap]
-    
-    mapImages.forEach(image => image.classList.remove('active'))
-    newImage.classList.add('active')
+    const newDescription = mapDescriptions[currentMap]
+    console.log(mapDescriptions)
+    console.log(newDescription)
+    mapImages.forEach(removeActive)
+    mapDescriptions.forEach(removeActive)
+
+    addActive(newImage)
+    addActive(newDescription)
   }, 200)
+}
+
+function removeActive (element) {
+  element.classList.remove('active')
+}
+
+function addActive (element) {  element.classList.add('active')
+  element.classList.add('active')
 }
 
 cameraRadios.forEach(camera => camera.addEventListener('change', changeCamera))
