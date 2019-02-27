@@ -31,6 +31,10 @@ p:first-of-type {
   margin-top: 0;
 }
 
+p {
+  line-height: 1.5;
+}
+
 ul {
   list-style: none;
   padding-left: 0;
@@ -95,6 +99,10 @@ ul {
   opacity: 1;
 }
 
+.street-view {
+  margin-bottom: 80px;
+}
+
 .street-view img {
   width: 100%;
 }
@@ -103,6 +111,7 @@ ul {
   position: relative;
   z-index: 1;
   margin-bottom: -120px;
+  margin-top: 50px;
 }
 
 .camera-list h3 {
@@ -150,7 +159,7 @@ ul {
   position: relative;
   width: 1400px;
   max-width: 90%;
-  margin: 80px auto 0;
+  margin: 80px auto;
 }
 
 .map img {
@@ -343,7 +352,7 @@ ul {
 .video {
   display: flex;
   justify-content: center;
-  margin: 25px auto;
+  margin: 25px auto 80px;
 }
 
 hr {
