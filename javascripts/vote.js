@@ -2,6 +2,7 @@ const voteListRadios = document.querySelector('.vote-list.radios')
 const voteListResults = document.querySelector('.vote-list.results')
 const voteRadios = Array.from(document.querySelectorAll('.vote-list input'))
 const resultElements = Array.from(document.querySelectorAll('.results li div'))
+const apiUrl = '<API-URL>'
 
 let poll = undefined
 
@@ -27,7 +28,7 @@ function showError (message) {
 }
 
 function getPoll () {
-  return fetch('<API-URL-HERE>')
+  return fetch(apiUrl)
     .then(response => response.json())
     .then(function (data) {
       poll = data.poll
@@ -67,7 +68,7 @@ function vote () {
   if (selected) {
     const body = JSON.stringify({answer: selected})
 
-    return fetch('<API-URL-HERE>', {
+    return fetch(apiUrl, {
       body: body, 
       method: 'POST',
       headers: {
@@ -82,8 +83,8 @@ function vote () {
   }
 }
 
-function countColorLevel (number, total) {
-  const percentage = number / total
+function countColorLevel (number, mostVoted) {
+  const percentage = number / mostVoted.dataset.count
   return Math.floor((percentage * 100) / 5) * 5
 }
 
@@ -96,9 +97,11 @@ function showResults (vote) {
   }
 
   countVotes()
+
+  const mostVoted = resultElements.reduce((a, b) => a.dataset.count > b.dataset.count ? a : b)
   
   resultElements.forEach(function (element) {
-    const colorLevel = countColorLevel(element.dataset.count, poll.votes.length)
+    const colorLevel = countColorLevel(element.dataset.count, mostVoted)
     element.classList.add(`vote-${colorLevel}`)
   })
 
@@ -106,7 +109,7 @@ function showResults (vote) {
   voteListResults.classList.add('active')
 
   showUsersVote(vote)
-  showMostVoted()
+  showMostVoted(mostVoted)
 }
 
 function createElement (tag, text, classNames) {
@@ -126,9 +129,7 @@ function showUsersVote (userVote) {
   element.parentNode.appendChild(textElement)
 }
 
-function showMostVoted () {
-  const mostVoted = resultElements.reduce((a, b) => a.dataset.count > b.dataset.count ? a : b)
-
+function showMostVoted (mostVoted) {
   const textElement = createElement('span', 'Legtöbbet választott', ['result-text', 'average-result'])
   mostVoted.parentNode.appendChild(textElement)
 }
