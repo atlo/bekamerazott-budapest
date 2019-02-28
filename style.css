@@ -488,6 +488,22 @@ footer {
   background: #DC5DCA;
 }
 
+.recommended li {
+  max-width: 250px;
+}
+
+.recommended a,
+.recommended h3 {
+  color: #999999;
+  font-size: 18px;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+.recommended img {
+  width: 100%;
+}
+
 @media (max-width: 999px) {
   .title {
     width: 100%;
