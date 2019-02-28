@@ -40,6 +40,10 @@ ul {
   padding-left: 0;
 }
 
+p a {
+  color: #dc5ecc;
+}
+
 .inline {
   display: flex;
   justify-content: space-between;
@@ -127,8 +131,9 @@ ul {
   text-align: center;
 }
 
-.camera-list p {
+.camera-list li p {
   height: 175px;
+  font-size: 15px;
   text-align: left;
 }
 
