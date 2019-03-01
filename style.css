@@ -339,6 +339,7 @@ p a {
 .vote .result-text {
   height: 33px;
   text-align: center;
+  width: 150px;
 }
 
 .vote .vote-list {
@@ -354,18 +355,28 @@ p a {
 }
 
 .result-text.user-result {
-  top: -45px;
+  position: absolute;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  left: calc(50% - 75px);
+  top: -40px;
   background: url('images/arrow_down.svg') bottom center no-repeat;
   background-size: 14px 7px;
+  width: 150px;
 }
 
 
 .result-text.average-result {
+  position: absolute;
   display: flex;
   align-items: flex-end;
-  bottom: -45px;
+  justify-content: center;
+  left: calc(50% - 75px);
+  bottom: -40px;
   background: url('images/arrow_up.svg') top center no-repeat;
   background-size: 14px 7px;
+  width: 150px;
 }
 
 .vote-description {
@@ -517,7 +528,7 @@ footer {
 .recommended a,
 .recommended h3 {
   color: #999999;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: normal;
   text-decoration: none;
 }
