@@ -60,19 +60,15 @@ function handleWheel (event) {
 }
 
 function previousMap () {
-  console.log('pre')
-  if (currentMap > 0) {
-    console.log('lol')
-    currentMap -= 1
-    setMap()
-  }
+  currentMap = currentMap > 0 ? currentMap - 1 : mapLength
+
+  setMap()
 }
 
 function nextMap () {
-  if (currentMap < mapLength) {
-    currentMap += 1
-    setMap()
-  }
+  currentMap = currentMap < mapLength ? currentMap + 1 : 0
+
+  setMap()
 }
 
 function setMap () {
