@@ -186,10 +186,10 @@ p a {
   top: 0;
   right: 3.5714%;
   width: 370px;
-  height: 120px;
+  height: 210px;
   margin-top: 0;
   background: #030926;
-  padding-top: 15px;
+  padding-top: 10px;
   text-align: center;
 }
 
@@ -249,10 +249,29 @@ p a {
 }
 
 .map-description .call-to-action {
-  display: flex;
+  display: block;
   justify-content: center;
   align-items: center;
   margin-top: 15px;
+}
+
+.map-description .call-to-action p:first-of-type {
+  margin-bottom: 0;
+}
+
+.map-description .call-to-action p:last-of-type {
+  margin-top: 0;
+}
+
+.map-description .call-to-action button {
+  height: 40px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.map-description .call-to-action button img {
+  width: 16px;
 }
 
 .signs .call-to-action {
@@ -261,23 +280,22 @@ p a {
 
 .call-to-action img {
   width: 14px;
-  margin-right: 10px;
 }
 
 .vote {
   position: relative;
-  height: 145px;
   width: 100%;
   margin: 50px 0;
 }
 
 .vote ul {
-  position: absolute;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .vote ul li {
   margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 .vote ul input {
@@ -302,6 +320,11 @@ p a {
   border: 1px solid #DC5DCA;
 }
 
+.vote .results li {
+  width: 92px;
+  height: 32px;
+}
+
 .vote ul input:checked + label,
 .vote .results li > div {
   background: #733a84;
@@ -314,20 +337,19 @@ p a {
 }
 
 .vote .result-text {
-  position: absolute;
-  left: -30px;
-  width: 155px;
   height: 33px;
   text-align: center;
 }
 
-.vote-list {
+.vote .vote-list {
+  display: none;
   opacity: 0;
   transition: opacity .5s;
 }
 
-.vote-list.active {
+.vote .vote-list.active {
   z-index: 1;
+  display: flex;
   opacity: 1;
 }
 
@@ -505,6 +527,10 @@ footer {
 }
 
 @media (max-width: 999px) {
+  .inline {
+    flex-wrap: wrap;
+  }
+
   .title {
     width: 100%;
     height: auto;
@@ -531,20 +557,34 @@ footer {
 
   .camera-list li {
     width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 25px;
   }
 
   .camera-list p {
     height: auto;
   }
 
+  .camera-list li p {
+    height: auto;
+  }
+
+  .camera-list img {
+    width: 150px;
+    text-align: center;
+  }
+
+  .camera-list label {
+    display: block;
+  }
+
   .map {
     width: 100%;
     max-width: 100%;
+    margin: 25px auto;
   }
 
   .map .image-container {
-    right: auto;
+    right: 5%;
   }
 
   .map-description {
@@ -554,12 +594,22 @@ footer {
     right: auto;
   }
 
-  .signs .inline {
-    display: block;
+  .map .image-container img {
+    width: 150%;
   }
 
-  .call-to-action {
+  .map-description .call-to-action > img {
     display: none;
+  }
+
+  .map-description .call-to-action button {
+    height: 60px;
+    width: 60px;
+  }
+
+  .signs {
+    min-width: 300px;
+    width: 350px;
   }
 
   .vote {
@@ -581,6 +631,16 @@ footer {
 
   .video iframe {
     width: 100%;
-    height: 175px;
+    height: 300px;
+  }
+
+  .recommended ul {
+    flex-wrap: wrap;
+  }
+
+  .recommended li {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 50px;
   }
 }
