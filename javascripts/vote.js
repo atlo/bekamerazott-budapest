@@ -6,16 +6,8 @@ const apiUrl = 'http://localhost:3000/poll/5c6ad5f0b2962c15e29e012e'
 
 let poll = undefined
 
-function setUserCookie (userId) {
+function setDidVoteCookie () {
   document.cookie = `did-vote=true`
-}
-
-function getUserVoteFromCookie () {
-  const userId = document.cookie
-    .split('; ')
-    .find(cookie => cookie.match('did-vote'))
-    
-  return userId ? true : false
 }
 
 function didUserVote () {
@@ -34,9 +26,8 @@ function getPoll () {
 
       return poll
     })
-    .then(function (poll) {
-      setVoteValues(poll)
-
+    .then(setVoteValues)
+    .then(function () {
       if (didUserVote()) {
         showResults()
       }
@@ -90,7 +81,7 @@ function countColorLevel (number, mostVoted) {
 function showResults (vote) {
   if (vote) {
     poll.votes = [...poll.votes, vote]
-    setUserCookie(vote.user)
+    setDidVoteCookie()
   }
 
   countVotes()
