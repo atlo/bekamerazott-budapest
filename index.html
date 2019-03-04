@@ -379,27 +379,36 @@
   <script src="javascripts/vote.js"></script>
   <script src="javascripts/highlight.js"></script>
   <script src="javascripts/script.js"></script>
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-48920123-31');
+  </script>
   <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
-<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
-<script>
-window.addEventListener("load", function(){
-window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#edeff5",
-      "text": "#838391"
+  <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+    "palette": {
+      "popup": {
+        "background": "#edeff5",
+        "text": "#838391"
+      },
+      "button": {
+        "background": "#4b81e8"
+      }
     },
-    "button": {
-      "background": "#4b81e8"
+    "content": {
+      "message": "Az oldal sütiket (cookie) használ. Tudj meg többet az adatvédelmi irányelveinkről az ",
+      "dismiss": "Elfogadom",
+      "link": "alábbi linken.",
+      "href": "https://atlo.team/jogi-nyilatkozat"
     }
-  },
-  "content": {
-    "message": "Az oldal sütiket (cookie) használ. Tudj meg többet az adatvédelmi irányelveinkről az ",
-    "dismiss": "Elfogadom",
-    "link": "alábbi linken.",
-    "href": "https://atlo.team/jogi-nyilatkozat"
-  }
-})});
-</script>
+  })});
+  </script>
 </body>
 </html>
