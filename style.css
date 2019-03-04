@@ -645,6 +645,10 @@ footer {
     height: 300px;
   }
 
+  .recommended {
+    margin-top: 125px;
+  }
+
   .recommended ul {
     flex-wrap: wrap;
   }
