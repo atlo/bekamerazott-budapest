@@ -2,25 +2,24 @@ const voteListRadios = document.querySelector('.vote-list.radios')
 const voteListResults = document.querySelector('.vote-list.results')
 const voteRadios = Array.from(document.querySelectorAll('.vote-list input'))
 const resultElements = Array.from(document.querySelectorAll('.results li div'))
-const apiUrl = '<API-URL>'
+const apiUrl = 'http://localhost:3000/poll/5c6ad5f0b2962c15e29e012e'
 
 let poll = undefined
 
 function setUserCookie (userId) {
-  document.cookie = `poll-user=${userId}`
+  document.cookie = `did-vote=true`
 }
 
 function getUserVoteFromCookie () {
   const userId = document.cookie
     .split('; ')
-    .find(cookie => cookie.match('poll-user'))
-    .split('=')[1]
+    .find(cookie => cookie.match('did-vote'))
     
-  return poll.votes.find(vote => vote.user === userId)
+  return userId ? true : false
 }
 
 function didUserVote () {
-  return document.cookie.includes('poll-user')
+  return document.cookie.includes('did-vote')
 }
 
 function showError (message) {
@@ -92,8 +91,6 @@ function showResults (vote) {
   if (vote) {
     poll.votes = [...poll.votes, vote]
     setUserCookie(vote.user)
-  } else {
-    vote = getUserVoteFromCookie()
   }
 
   countVotes()
@@ -123,6 +120,8 @@ function createElement (tag, text, classNames) {
 }
 
 function showUsersVote (userVote) {
+  if (!userVote) return
+
   const element = resultElements.find(result => result.dataset.value === userVote.answer)
 
   const textElement = createElement('span', 'A te véleményed', ['result-text', 'user-result'])

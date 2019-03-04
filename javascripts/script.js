@@ -74,7 +74,7 @@ function nextMap () {
 function setMap () {
   const newImage = mapImages[currentMap]
   const newDescription = mapDescriptions[currentMap]
-  console.log({currentMap, newImage, newDescription})
+  
   mapImages.forEach(removeActive)
   mapDescriptions.forEach(removeActive)
 

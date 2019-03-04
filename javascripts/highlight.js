@@ -8,25 +8,25 @@ function getRelativeCoordinates (event, element){
   const position = {
     x: event.pageX,
     y: event.pageY
-  };
+  }
 
   const offset = {
     left: element.offsetLeft,
     top: element.offsetTop
-  };
+  }
 
-  let reference = element.offsetParent;
+  let reference = element.offsetParent
 
-  while(reference != null){
-    offset.left += reference.offsetLeft;
-    offset.top += reference.offsetTop;
-    reference = reference.offsetParent;
+  while (reference != null) {
+    offset.left += reference.offsetLeft
+    offset.top += reference.offsetTop
+    reference = reference.offsetParent
   }
 
   return { 
     x: position.x - offset.left,
     y: position.y - offset.top,
-  }; 
+  }
 
 }
 
@@ -52,7 +52,7 @@ function calculatePercentage (x, y) {
 function moveHighlight (event) {
   const {x, y} = getRelativeCoordinates(event, titleContainer)
   const [xPercentage, yPercentage] = calculatePercentage(x, y)
-  console.log(`circle(14% at ${xPercentage}% ${yPercentage})`)
+  
   highlighted.style.clipPath = `circle(14% at ${xPercentage}% ${yPercentage}%)`
 }
 
