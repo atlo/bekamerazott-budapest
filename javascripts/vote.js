@@ -2,7 +2,7 @@ const voteListRadios = document.querySelector('.vote-list.radios')
 const voteListResults = document.querySelector('.vote-list.results')
 const voteRadios = Array.from(document.querySelectorAll('.vote-list input'))
 const resultElements = Array.from(document.querySelectorAll('.results li div'))
-const apiUrl = 'http://localhost:3000/poll/5c6ad5f0b2962c15e29e012e'
+const apiUrl = 'apiurl'
 
 let poll = undefined
 
@@ -86,7 +86,8 @@ function showResults (vote) {
 
   countVotes()
 
-  const mostVoted = resultElements.reduce((a, b) => a.dataset.count > b.dataset.count ? a : b)
+  const mostVoted = resultElements.reduce((a, b) => 
+    parseInt(a.dataset.count) > parseInt(b.dataset.count) ? a : b)
   
   resultElements.forEach(function (element) {
     const colorLevel = countColorLevel(element.dataset.count, mostVoted)
