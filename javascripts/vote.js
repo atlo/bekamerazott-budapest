@@ -27,11 +27,7 @@ function getPoll () {
       return poll
     })
     .then(setVoteValues)
-    .then(function () {
-      if (didUserVote()) {
-        showResults()
-      }
-    })
+    .then(showResults())
     .catch(error => error)
 }
 
@@ -59,7 +55,7 @@ function vote () {
     const body = JSON.stringify({answer: selected})
 
     return fetch(apiUrl, {
-      body: body, 
+      body: body,
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -86,9 +82,9 @@ function showResults (vote) {
 
   countVotes()
 
-  const mostVoted = resultElements.reduce((a, b) => 
+  const mostVoted = resultElements.reduce((a, b) =>
     parseInt(a.dataset.count) > parseInt(b.dataset.count) ? a : b)
-  
+
   resultElements.forEach(function (element) {
     const colorLevel = countColorLevel(element.dataset.count, mostVoted)
     element.classList.add(`vote-${colorLevel}`)
